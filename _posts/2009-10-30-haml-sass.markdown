@@ -1,0 +1,232 @@
+---
+layout: post
+title: Haml + Sass
+---
+
+<blockquote>
+<img src="../../../../images/alan-perlis.gif" alt="[Alan Perlis]" />
+<p>
+  Dealing with failure is easy: Work hard to improve. Success is also
+  easy to handle: You've solved the wrong problem. Work hard to improve.
+</p>
+<p class="author">— Alan Perlis</p>
+</blockquote>
+
+# {{ page.title }}
+
+## Jadą z HAMLem!
+
+Lecimy z następnym tematem, mianowicie HAML + SASS. Czytanka do poduchy - [strona projektu](http://haml-lang.com). Pytanie za sto punktów - ale o so chodzi? Otóż - Haml jest językiem znaczników używanym do przejrzystego opisywania plików XHTML. Jak bardzo przejrzystego? Okazuje się, że bardzo ;) Walimy z grubej rury - przepisujemy HTML na HAMLa.
+   
+Wersja HAML'a:
+{% highlight html %}
+!!!
+%html
+  %head
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+    %title
+    %link{ :href => "../blueprint/screen.css", :rel => "stylesheet", :type => "text/css", :media => "screen, projection" }
+    %link{ :href => "../blueprint/print.css", :rel => "stylesheet", :type => "text/css", :media => "print" }
+    /
+      [if lt IE 8]>
+      <link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection">
+      <![endif]
+  %body
+    .container
+      .span-24.last
+        %hr
+        %h2.alt
+          Witam na mega wypasionej stronie
+        %hr
+      .span-5
+        %a{ :href => "" }
+          Jeden
+        %br
+        %a{ :href => "" }
+          Đ´Đ˛Đ°
+        %br
+        %a{ :href => "" }
+          Tri
+        %br
+        %a{ :href => "" }
+          Four
+        %br
+        %a{ :href => "" }
+          FĂĽnf
+        %br
+      .span-18
+        %p
+          %img.top.pull-1.left{ :src => "http://www.gabonpage.com/gestion_actu/admin_actu/images_actu/ali-bongo.jpg", :alt => "test" }
+         tekst 
+        %blockquote
+          "Acvn cxvmnrtr. Bdsnfndf ewrew werme o ew ere ewnef emdfdf" - Ali Bongo.
+      .span-1.last
+      .span-24.last
+        Wykonane przez Macieja, dobra robote odwalil‚ tez BLUEPRINT :)
+
+{% endhighlight %}
+
+Propozycja XHTML'a:
+{% highlight html %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+<title></title>
+
+<link rel="stylesheet" href="../blueprint/screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="../blueprint/print.css" type="text/css" media="print">
+<!--[if lt IE 8]>
+  <link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection">
+<![endif]-->
+
+
+</head>
+<body>
+
+
+<div class="container">
+    <div class="span-24 last">
+    <hr>
+      <h2 class="alt">Witam na mega wypasionej stronie</h2>
+     <hr>
+    </div>
+    <div class="span-5">
+      <a href="">Jeden</a><br>
+      <a href="">Đ´Đ˛Đ°</a><br>
+      <a href="">Tri</a><br>
+      <a href="">Four</a><br>
+      <a href="">FĂĽnf</a><br>
+    </div>
+    <div class="span-18">
+    <p><img src="http://www.gabonpage.com/gestion_actu/admin_actu/images_actu/ali-bongo.jpg" class="top pull-1 left" alt="test">
+tekst</p>
+<blockquote>
+"Acvn cxvmnrtr. Bdsnfndf ewrew werme o ew ere ewnef emdfdf" - Ali Bongo.
+</blockquote>
+
+    </div>
+    <div class="span-1 last">
+    </div>
+    <div class="span-24 last">
+      Wykonane przez Macieja, dobra robote odwalil‚ tez BLUEPRINT :)
+    </div>    
+  </div>
+
+
+</body>
+</html>
+
+
+{% endhighlight %}
+
+Jak zostajemy zapewnieni, po 30 minutach zapoznawania się z nową składnią odczujemy przyspieszenie pracy. Udaje mi się przełamać niechęć, która pojawiła się po pięciu minutach (zapowiadała się cała noc wklepywania, skończyło się troszkę wcześniej). Wreszcie udaje mi się przepisać stronę z uśmiechniętym Panem do wersji HAMLowej. Zalety? Błoga przejrzystość. No i dużo mniej pisania - strona z Wesołym Panem + HAML 1235 znaków przy 1236 w HTML edition (niby jeden znak, ale jednak :P) Wiki postarała się o bardziej wyszukany przykład - 516 znaków w wersji Hamla przy 1136 znaków w HTMLu robi sporą różnicę (trochę ponad połowa mniej!). Jeśli jakiś śmiałek miałby zamiar wpisać to z palca, zdecydowanie polecałbym HAMLa - zaoszczedzi połowę potu :P
+
+## SASS pod lupą
+
+Sass - czyli odpowiednik CSSa dla HAMLa, podobno pozwala tworzyć prostsze arkusze stylów. Się zobaczy.
+   
+I znowu to samo, przepisywanie. Zaczynam myśleć o zatrudnieniu sekretarki. Ostatkiem sił udaje mi się dokończyć dzieła zniszczenia. Fragmenty kodu:
+
+CSS:
+
+{% highlight css %}
+body {line-height:1.5;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;color:#000;background:none;font-size:10pt;}
+.container {background:none;}
+hr {background:#ccc;color:#ccc;width:100%;height:2px;margin:2em 0;padding:0;border:none;}
+hr.space {background:#fff;color:#fff;visibility:hidden;}
+h1, h2, h3, h4, h5, h6 {font-family:"Helvetica Neue", Arial, "Lucida Grande", sans-serif;}
+code {font:.9em "Courier New", Monaco, Courier, monospace;}
+a img {border:none;}
+p img.top {margin-top:0;}
+blockquote {margin:1.5em;padding:1em;font-style:italic;font-size:.9em;}
+.small {font-size:.9em;}
+.large {font-size:1.1em;}
+.quiet {color:#999;}
+.hide {display:none;}
+a:link, a:visited {background:transparent;font-weight:700;text-decoration:underline;}
+a:link:after, a:visited:after {content:" (" attr(href) ")";font-size:90%;}
+{% endhighlight %}
+
+SASS:
+{% highlight css %}
+body
+  line-height: 1.5
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+  color: #000
+  background: none
+  font-size: 10pt
+
+
+.container
+  background: none
+
+
+hr
+  background: #ccc
+  color: #ccc
+  width: 100%
+  height: 2px
+  margin: 2em 0
+  padding: 0
+  border: none
+
+  &.space
+    background: #fff
+    color: #fff
+    visibility: hidden
+
+
+h1, h2, h3, h4, h5, h6
+  font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif
+
+
+code
+  font: .9em "Courier New", Monaco, Courier, monospace
+
+
+a img
+  border: none
+
+
+p img.top
+  margin-top: 0
+
+
+blockquote
+  margin: 1.5em
+  padding: 1em
+  font-style: italic
+  font-size: .9em
+
+
+.small
+  font-size: .9em
+
+
+.large
+  font-size: 1.1em
+
+
+.quiet
+  color: #999
+
+
+.hide
+  display: none
+
+
+a
+  &:link, &:visited
+    background: transparent
+    font-weight: 700
+    text-decoration: underline
+
+  &:link:after, &:visited:after
+    content: " (" attr(href) ")"
+    font-size: 90%
+
+{% endhighlight %}
+
+Uff. Nadszedł czas na to co tygryski lubią najbardziej czyli sprawdzenie poprawności. Na całe szczeście YSlow przyznaje tę samą notę co poprzednio (standardowo skubie nas za CDN, brak kompresji i Expires headers). To chyba najlepszy dowód, że wszelkie translacje wykonaliśmy poprawnie. Bateria notebooka daje znak do zakończenia pracy, nie sposób jej się oprzeć.

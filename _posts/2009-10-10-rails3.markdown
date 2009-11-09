@@ -1,0 +1,23 @@
+---
+layout: post
+title: Rails3
+---
+
+<blockquote>
+<img src="../../../../images/alan-perlis.gif" alt="[Alan Perlis]" />
+<p>
+  Dealing with failure is easy: Work hard to improve. Success is also
+  easy to handle: You've solved the wrong problem. Work hard to improve.
+</p>
+<p class="author">— Alan Perlis</p>
+</blockquote>
+
+# {{ page.title }}
+
+## Startujemy!
+
+ Wraz z nowym rokiem akademickim wspólnie rozpoczynamy nowy kurs fakultatywny, mianowicie Architektura Serwisów Internetowych.
+ 
+ Do czynienia będziemy mieli z Rails 3, a więc frameworkiem z połączenia sił Ruby on Rails i Merba. Jesteśmy już po pierwszych laboratoriach, gdzie utworzyliśmy konta na GitHubie i poznaliśmy tajniki instalacji jBloga na naszych kontach. Niniejszy tekst jest chyba najlepszym dowodem na pełen sukces zajęć.
+ 
+ Przedmiot zapowiada się ciekawie, z pewnością będziemy się dobrze bawić ;)
